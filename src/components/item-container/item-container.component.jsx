@@ -20,19 +20,21 @@ export const ItemContainer = (props) => {
     props.toggleComplete(props.index);
   };
 
+  const { item } = props;
+
   return (
     <div className="item-list">
       <div className="item-container">
         <div className="item-name" onClick={toggleComplete}>
-          {props.item.isSelected ? (
+          {item.isSelected ? (
             <>
               <MdCheckCircle />
-              <span className="completed">{`${props.item.itemName}`}</span>
+              <span className="completed">{item.itemName}</span>
             </>
           ) : (
             <>
               <MdCheckCircleOutline />
-              <span>{props.item.itemName}</span>
+              <span>{item.itemName}</span>
             </>
           )}
         </div>
@@ -40,7 +42,7 @@ export const ItemContainer = (props) => {
           <button>
             <MdChevronLeft onClick={handleQuantityDecrease} />
           </button>
-          <span> {props.item.quantity} </span>
+          <span> {item.quantity} </span>
           <button>
             <MdChevronRight onClick={handleQuantityIncrease} />
           </button>

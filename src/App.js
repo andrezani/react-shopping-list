@@ -64,10 +64,12 @@ class App extends Component {
     const newItems = [...this.state.items];
     newItems[index].quantity--;
 
-    const deleteEmptyQuantity = newItems.filter((item) => item.quantity !== 0);
+    const deleteItemsWithZeroQuantity = newItems.filter(
+      (item) => item.quantity !== 0
+    );
 
     this.setState({
-      items: deleteEmptyQuantity,
+      items: deleteItemsWithZeroQuantity,
     });
   };
 
